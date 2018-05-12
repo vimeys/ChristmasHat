@@ -1,0 +1,32 @@
+<!--components/wxAccredit/wx.wxml-->
+<swiper interval="{{time1}}" duration="{{time2}}">
+    <block wx:for="{{images}}">
+        <swiper-item>
+
+        <image src="{{item}}" class="swiper-image"></image>
+        <!--<image src="../../image/1.png" class="swiper-image"></image>-->
+
+        </swiper-item>
+    </block>
+</swiper>
+<canvas canvas-id="myCanvas" class="testCanvas"></canvas>
+<cover-view class="wx-bg">
+    <cover-view class="wx-bg-bgs"></cover-view>
+    <cover-view class="wx-pop">
+            <cover-view class="wx-pop-title"></cover-view>
+            <cover-view class="wx-pop-recommend">
+                <cover-image src="/image/1.png" class="wx-pop-pgImage"></cover-image>
+                <cover-view wx-pop-text>实时公交申请获取一下权限：</cover-view>
+            </cover-view>
+            <cover-view class="wx-pop-data">
+                <cover-view class="wx-pop-point"></cover-view>
+                <cover-view class="wx-pop-text"></cover-view>
+            </cover-view>
+            <cover-view class="wx-pop-btns">
+                <cover-view class="wx-pop-cancle">取消</cover-view>
+                <!--<button class="wx-pop-config">确认</button>-->
+            </cover-view>
+    </cover-view>
+    <!--<></>-->
+    <!--<button>123</button>-->
+</cover-view>

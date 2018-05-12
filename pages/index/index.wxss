@@ -9,7 +9,8 @@ button{
 }
 .container{
   width:100%;
-  height:300px;
+  min-height:300px;
+  max-height: 2000rpx;
 }
 .bgPic,.emptyBg{
   height:300px;

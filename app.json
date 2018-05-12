@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+      "pages/wx/wx",
+    "pages/imageCut/imageCut",
     "pages/imageeditor/imageeditor",
     "pages/combine/combine"
   ],

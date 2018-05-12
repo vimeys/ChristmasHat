@@ -1,15 +1,15 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.7.2",
-	"appid": "wxfee681a382d5f7dc",
+	"libVersion": "2.0.0",
+	"appid": "wxc9e46f64f7ea96e2",
 	"projectname": "chrisHat_Lite",
 	"condition": {
 		"search": {

@@ -3,14 +3,22 @@ const app=getApp();
 Page({
 
   data: {
-  
+      width:'',
+      height:''
   },
 
   onLoad: function (options) {
-    wx.getImageInfo({
-      src:app.globalData.bgPic,
+      console.log(app.globalData);
+      this.setData({
+          width:app.globalData.width,
+          height:app.globalData.height
+      })
+      wx.getImageInfo({
+      src:app.globalData.bgPic[0],
       success: res => {
-          this.bgPic=res.path
+
+          this.bgPic=res.path;
+          console.log(this)
         this.draw();
       }
     })
@@ -36,19 +44,21 @@ Page({
 
 
     pc.clearRect(0, 0, windowWidth, 300);
-    pc.drawImage(this.bgPic, windowWidth / 2 - 150, 0, 300, 300);
+    pc.drawImage(this.bgPic,0,0,app.globalData.width/2,app.globalData.height/2);
     pc.translate(hat_center_x,hat_center_y);
     pc.rotate(rotate * Math.PI / 180);
+
     pc.drawImage("../../image/" + currentHatId + ".png", -hat_size / 2, -hat_size / 2, hat_size, hat_size);
     pc.draw();
   },
   savePic() {
     const windowWidth = wx.getSystemInfoSync().windowWidth;
-    wx.canvasToTempFilePath({
-      x: windowWidth / 2 - 150,
-      y: 0,
-      height: 300,
-      width: 300,
+      console.log(windowWidth);
+      wx.canvasToTempFilePath({
+      // x: windowWidth / 2 - 150,
+      // y: 0,
+      // height: app.globalData.height,
+      // width: app.globalData.width,
       canvasId: 'myCanvas',
       success: (res) => {
         wx.saveImageToPhotosAlbum({

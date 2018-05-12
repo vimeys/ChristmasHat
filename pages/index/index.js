@@ -7,7 +7,8 @@ Page({
    */
   data: {
     bgPic:null,
-    picChoosed:false
+    picChoosed:false,
+      count:''
   },
 
   assignPicChoosed() {
@@ -41,27 +42,39 @@ Page({
     }
   },
   chooseImage(from){
-    wx.chooseImage({
-      count: 1,
-      sizeType: ["original", "compressed"],
-      sourceType: [from.target.dataset.way],
-      success:(res)=> {
-        var tempFilePaths = res.tempFilePaths;
-        this.setData({
-          bgPic:res.tempFilePaths[0]
-        });
-        this.assignPicChoosed();
-      },
-      fail: (res)=>{
-        this.assignPicChoosed();
-        },
-      complete: (res)=>{
-        this.assignPicChoosed();
-        },
-    })
+      console.log(this.data.count);
+      if(0<this.data.count<6||this.data.count==''){
+        wx.chooseImage({
+            count: 6-this.data.count,
+            sizeType: ["original", "compressed"],
+            sourceType: [from.target.dataset.way],
+            success:(res)=> {
+                var tempFilePaths = res.tempFilePaths;
+                let old=this.data.bgPic||[]
+                let newT=res.tempFilePaths;
+                let arr=[...old,...newT];
+                console.log(arr);
+                this.setData({
+                    bgPic:arr,
+                    count:arr.length
+                });
+                this.assignPicChoosed();
+            },
+            fail: (res)=>{
+                this.assignPicChoosed();
+            },
+            complete: (res)=>{
+                this.assignPicChoosed();
+            },
+        })
+    }else{
+        return
+      }
+
   },
   nextPage(){
       app.globalData.bgPic=this.data.bgPic;
+      console.log(app.globalData.bgPic);
       wx.navigateTo({
         url: '../imageeditor/imageeditor',
       })
