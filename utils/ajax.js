@@ -32,6 +32,17 @@ function promise(url,data) {
                     resolve(json)
                 }else if(json.code==205){
                     // console.log(res);
+                    wx.login({
+                        success(res){
+                            wx.request({
+                                url:"",
+                               data:{code:res.code},
+                                success:res=>{
+                                    resolve(json)
+                                }
+                            })
+                        }
+                    })
                     resolve(json)
                 }
             },
@@ -53,8 +64,8 @@ function promiseHasHeader(url,data) {
                 console.log(res);
                 if(res.statusCode==200){// 当请求数据成功后执行
                     resolve(json)
-                }else{
-                    console.log(res);
+                }else if(res.data.data==201){
+                    // wx.login({})
                 }
             },
             fail:function(res){  // 请求链接失败后执行
@@ -64,10 +75,6 @@ function promiseHasHeader(url,data) {
         })
     })
 }
-
-
-
-
 
 function postAjaxMore(url,data,fn,that) {
     wx.request({

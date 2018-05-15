@@ -25,15 +25,16 @@
     <button bind:tap="combinePic">确定</button>
   <button bind:tap="save">保存</button>
   <button bind:tap="updata">提交</button>
+  <button bind:tap="showImageList">选择贴图</button>
 
 
-   <scroll-view class="scrollView" scroll-x="true" >
-    <image class="imgList" 
-        wx:for="...imgList" wx:key="{{index+1}}" 
+   <scroll-view class="scrollView" scroll-x="true"  wx:if="{{showImageList}}">
+    <image class="imgList"
+        wx:for="...imgList" wx:key="{{index+1}}"
         src="../../image/{{index+1}}.png"
         data-hat-id="{{index+1}}"
         bind:tap="chooseImg"></image>
-  </scroll-view> 
+  </scroll-view>
 </view>
 
 <!--<cover-view class="prev"><cover-image src="{{prev-image}}" mode="widthFix"></cover-image></cover-view>-->

@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+      "pages/lunbo/lunbo",
+      "pages/updata/updata",
       "pages/wx/wx",
     "pages/imageCut/imageCut",
     "pages/imageeditor/imageeditor",

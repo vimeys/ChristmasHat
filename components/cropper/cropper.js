@@ -287,11 +287,13 @@ Component({
           quality: 1,
           success: function (res) {
             wx.hideToast()
-            //自定义事件导出画布
+              console.log(1);
+              //自定义事件导出画布
             that.triggerEvent('saveImg', res.tempFilePath)
           },
           fail(err) {
-            wx.hideToast()
+              console.log(2);
+              wx.hideToast()
             wx.showModal({
               title: '保存失败',
               content: '图片保存失败，请重新选择',

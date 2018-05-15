@@ -1,4 +1,5 @@
 // pages/imageCut/imageCut.js
+var app=getApp();
 Page({
 
   /**
@@ -52,8 +53,10 @@ Page({
   
   },
     saveImg(e){
-        wx.redirectTo({
-            // url: `../test/test?imageSrc=${e.detail}`
+        console.log(app.globalData);
+        app.globalData.bgPic[app.globalData.imageId]=e.detail;
+        wx.navigateTo({
+            url: `../imageeditor/imageeditor?imageSrc=${e.detail}`
         })
     },
   /**

@@ -1,1 +1,1 @@
-<cropper wx:if="{{imageSrc}}" imageSrc="{{imageSrc}}" bindSaveImg="saveImg"></cropper>
+<cropper wx:if="{{imageSrc}}" imageSrc="{{imageSrc}}" bindsaveImg="saveImg"></cropper>
