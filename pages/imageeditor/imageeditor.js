@@ -505,7 +505,33 @@ Page({
     // 上传背景图
     bgUp(){
         let that=this;
-        ajax.promise(url.url.)
+        wx.uploadFile({
+            url: 'http://172.200.1.14:1080/public/petapi/file/upload',
+            filePath: res.tempFilePath,
+            name: 'file',
+            success:resA=>{
+                console.log('http://172.200.1.14:1080'+JSON.parse(resA.data).data.url);
+
+                success++;
+                // console.log(res.tempFilePath);
+            },
+            fail(res){
+                fail++
+            },
+            complete(){
+                i++;
+                // console.log(res.tempFilePath);
+                if(i==length){
+
+                }else{
+                    data.i=i;
+                    data.success=success;
+                    data.fail=fail;
+                    that.drawUp(drawArray1,data)
+                }
+            }
+        })
+        // ajax.promise(url.url.)
     },
 
     // 提交

@@ -1,0 +1,11 @@
+<canvas canvas-id="myCanvas" style="height:1000rpx;width: 750rpx" bindtap="saveImage"></canvas>
+<button bindtap="save">保存</button>
+<button bindtap="share">分享</button>
+<swiper interval="{{time1}}" duration="{{time2}}" autoplay="{{autoplay}}" bindchange="getIndex">
+    <block wx:for="{{images}}">
+        <swiper-item>
+            <image src="{{item}}" class="swiper-image"></image>
+            <!--<image src="../../image/1.png" class="swiper-image"></image>-->
+        </swiper-item>
+    </block>
+</swiper>
