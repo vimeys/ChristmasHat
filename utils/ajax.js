@@ -28,9 +28,9 @@ function promise(url,data) {
             success:function(res){// 请求链接成功后执行过程
                 var json=res.data;
                 // console.log(res);
-                if(json.code== 200){// 当请求数据成功后执行
+                if(json.status==1){// 当请求数据成功后执行
                     resolve(json)
-                }else if(json.code==205){
+                }else if(json.status==0){
                     // console.log(res);
                     wx.login({
                         success(res){
